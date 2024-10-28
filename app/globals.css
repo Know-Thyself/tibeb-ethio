@@ -1,6 +1,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-inter: Arial, Helvetica, sans-serif;
+  --font-roboto-mono: monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,4 +41,12 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* If using vanilla CSS */
+.some-class {
+  font-family: var(--font-inter);
+}
+.code-block {
+  font-family: var(--font-roboto-mono);
 }
