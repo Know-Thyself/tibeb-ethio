@@ -6,27 +6,27 @@
 
 .hero {
 	width: 100%;
-	background-image: url('/images/lightbulb.jpeg');
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	transform: translateY(-5%);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	min-height: 50vh;
-	background: linear-gradient(135deg, var(--primary-500), var(--primary-800));
-	background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-	background: linear-gradient(135deg, var(--primary-900), var(--primary-600));
+	background: linear-gradient(
+		135deg,
+		var(--primary-900),
+		/* Deep green */ var(--primary-800),
+		var(--secondary-800),
+		/* Deep gold */ var(--accent-900) /* Deep red */
+	);
 	padding: 0 2rem;
 	gap: 1rem;
 	text-align: center;
 	overflow: hidden;
+	min-height: 60vh;
 }
 
 /* Add an animated background pattern */
-.hero::before {
+/* .hero::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -35,36 +35,42 @@
 	bottom: 0;
 	background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.344 0L13.858 8.485 15.272 9.9l7.9-7.9h-.828zm5.656 0L9.544 18.456l.828.828L28 1.656V0h-2z' fill='rgba(255, 255, 255, 0.05)' fill-rule='evenodd'/%3E%3C/svg%3E");
 	opacity: 0.1;
+} */
+
+.hero::before {
+	opacity: 0.15; /* Slightly increased from 0.1 */
 }
 
 .title {
 	font-size: 1.75rem;
-	color: var(--background-primary); /* white */
 	text-shadow: 0 2px 4px rgba(47, 41, 187, 0.3);
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	color: var(--secondary-100);  /* Light gold */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.subtitle {
-	font-size: 1.25rem;
-	color: var(--background-primary); /* white */
-	opacity: 0.9;
-}
-
-.tibeb,
-.subtitle {
-	letter-spacing: 2px;
-	background: linear-gradient(135deg, var(--accent-500), var(--accent-500));
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: var(--background-primary); /* white */
-	text-shadow: 0 2px 4px rgba(47, 41, 187, 0.3);
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
 
 .tibeb {
 	font-weight: 600;
 	font-size: 1.85rem;
+	background: linear-gradient(
+		135deg,
+		var(--secondary-300),
+		var(--secondary-400) /* Bright gold */
+	);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none;
+	letter-spacing: 2px;
+}
+
+.subtitle {
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: 2px;
+	color: var(--secondary-100);  /* Light gold */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .paragraph {
@@ -72,16 +78,17 @@
 	font-weight: 500;
 	font-size: 1.1rem;
 	margin-bottom: 16px;
-	line-height: 1.5;
+	line-height: 1.6;
 	color: #2d3748;
 }
 
 .paragraph p {
 	text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    word-break: break-word;
+	hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	word-break: break-word;
+	color: var(--text-secondary);
 }
 
 .section {
@@ -89,29 +96,33 @@
 	margin: 0 auto;
 	font-family: 'Inter', sans-serif;
 	line-height: 1.6;
-	color: var(--neutral-750);
-	color: #333;
 	border-radius: 8px;
 	padding: 0 1.5rem;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	animation: fadeIn 0.8s ease-out forwards;
+	background: var(--background-primary);
+    color: var(--text-primary);
+    padding: 0 5%;
+
+	/* margin: 1rem 0; */
+    padding: 1rem 5%;
 }
 
 .pillarsWrapper {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 2rem;
-	margin: 1.75rem auto;
+	margin: 2rem auto;
 }
 
 .pillarCard {
-	background: white;
 	border-radius: 1rem;
-	overflow: hidden;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	width: 100%;
 	animation: fadeIn 0.5s ease-out forwards;
+	background: var(--background-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pillarCard:hover {
@@ -125,7 +136,6 @@
 
 /* Tablet devices */
 @media screen and (min-width: 678px) {
-
 	.title {
 		font-size: 2rem;
 	}
@@ -135,7 +145,7 @@
 	}
 
 	.section {
-		padding: 0 3rem;
+		padding: 1rem 5%;
 	}
 }
 
@@ -157,9 +167,9 @@
 	}
 
 	.section {
-		padding: 0.75rem 5% 0 5%;
+		padding: .75rem 5% ;
+		/* margin: 1.25rem 0; */
 	}
-
 }
 
 @media (min-width: 945px) {
@@ -198,7 +208,6 @@
 	}
 }
 
-
 /* Add subtle animation for content loading */
 @keyframes fadeIn {
 	from {
@@ -233,18 +242,8 @@
 	padding: 1.5rem;
 	color: #4a5568;
 	line-height: 1.6;
-}
-
-/* Add subtle animation for content loading */
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+	color: var(--text-secondary);
+    padding: 1.5rem;
 }
 
 /* Stagger children animations */
@@ -268,3 +267,138 @@
 }
 
 
+
+/* 1. Animated Hero Pattern */
+.heroPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        var(--secondary-500) 20px,
+        var(--secondary-500) 21px
+    );
+    opacity: 0.05;
+    animation: patternMove 30s linear infinite;
+}
+
+@keyframes patternMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+/* 2. Interactive Pillar Cards */
+.pillarCard {
+    position: relative;
+    overflow: hidden;
+}
+
+.pillarCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--primary-500),
+        var(--secondary-500),
+        var(--accent-500)
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.pillarCard:hover::before {
+    transform: translateX(0);
+}
+
+/* 3. Animated Icons/Numbers */
+.statNumber {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-600);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.statNumber:hover {
+    transform: scale(1.1);
+    color: var(--secondary-500);
+}
+
+/* 4. Interactive Text Highlights */
+.highlightText {
+    position: relative;
+    color: var(--primary-600);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.highlightText::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-400);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.highlightText:hover::after {
+    transform: scaleX(1);
+}
+
+/* 5. Scroll-Triggered Animations */
+.fadeInSection {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+	will-change: opacity, transform;
+}
+
+.fadeInSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 6. Interactive Button Styles */
+.ctaButton {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.ctaButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        var(--primary-500),
+        var(--secondary-500),
+        var(--accent-500)
+    );
+    transition: transform 0.6s ease;
+    z-index: -1;
+    transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
+}
+
+.ctaButton:hover::before {
+    transform: translate(-50%, -50%) rotate(45deg) translateY(0);
+}

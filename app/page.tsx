@@ -13,31 +13,34 @@ import {
 	FaHandHoldingHeart,
 	FaLightbulb,
 } from 'react-icons/fa' // Add other icons as needed
+import ScrollAnimation from '@/components/scroll-animation'
 
 const subItemStyles = {
 	'Organization & Networking': {
 		icon: FaNetworkWired,
-		gradient: 'linear-gradient(135deg, #6366f1, #a855f7)',
+		gradient: 'linear-gradient(135deg, var(--primary-500), var(--primary-600))',
 	},
 	'Knowledge & Information': {
 		icon: FaBook,
-		gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+		gradient:
+			'linear-gradient(135deg, var(--secondary-500), var(--secondary-600))',
 	},
 	'Market & Production Networks': {
 		icon: FaIndustry,
-		gradient: 'linear-gradient(135deg, #14b8a6, #22c55e)',
+		gradient: 'linear-gradient(135deg, var(--accent-600), var(--accent-500))',
 	},
 	'Capital & Capital Network': {
 		icon: FaPiggyBank,
-		gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+		gradient: 'linear-gradient(135deg, var(--primary-500), var(--primary-600))',
 	},
 	'Good Governance & business Ethics & Peace': {
 		icon: FaBalanceScale,
-		gradient: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
+		gradient:
+			'linear-gradient(135deg, var(--secondary-500), var(--secondary-600))',
 	},
 	'Affirmative Action': {
 		icon: FaHandHoldingHeart,
-		gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)',
+		gradient: 'linear-gradient(135deg, var(--accent-600), var(--accent-500))',
 	},
 }
 
@@ -66,6 +69,7 @@ export default function Home() {
 	return (
 		<main className={styles.main}>
 			<div className={styles.hero}>
+				<div className={styles.heroPattern} />
 				<h1 className={`${styles.title} ${montserrat.className}`}>
 					<Bold>
 						{title.split('TIBEB').map((part, i) => (
@@ -84,15 +88,25 @@ export default function Home() {
 					{subtitle.toUpperCase()}
 				</h2>
 			</div>
+			<ScrollAnimation />
+			<section className={`${styles.section} ${styles.fadeInSection}`}>
+				<h2>
+					Our <span className={styles.highlightText}>Mission</span>
+				</h2>
+				{/* ... */}
+			</section>
 			<section className={`${styles.section} ${inter.className}`}>
 				{paragraphs.map((paragraph: string | Paragraph, index: number) => (
 					<div key={index} className={styles.paragraph}>
 						{typeof paragraph === 'string' ? (
-							<p lang="en">{parseItalics(paragraph)}</p>
+							<p lang='en'>{parseItalics(paragraph)}</p>
 						) : (
 							<div className={styles.pillarsWrapper}>
 								{Object.entries(paragraph.pillars).map(([key, value]) => (
-									<div key={key} className={styles.pillarCard}>
+									<div
+										key={key}
+										className={`${styles.pillarCard} ${styles.fadeInSection}`}
+									>
 										<div
 											className={styles.pillarHeader}
 											style={{
@@ -121,6 +135,13 @@ export default function Home() {
 						)}
 					</div>
 				))}
+			</section>
+			<section className={`${styles.section} ${styles.fadeInSection}`}>
+				<div className={styles.stats}>
+					<div className={styles.statNumber}>100+</div>
+					<div className={styles.statNumber}>50K+</div>
+					<div className={styles.statNumber}>25+</div>
+				</div>
 			</section>
 		</main>
 	)

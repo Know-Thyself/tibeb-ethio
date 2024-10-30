@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from '../components/navigation/navbar'
 import '@/styles/colors.css'
 import { spaceGrotesk, inter, montserrat } from '@/app/fonts'
+import Footer from '@/components/footer/footer'
 
 export const metadata: Metadata = {
 	title: 'Tibeb Ethiopia',
@@ -25,6 +26,7 @@ export default function RootLayout({
 			<body>
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	)
