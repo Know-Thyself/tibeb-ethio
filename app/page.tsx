@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './page.module.css'
 import abstractData from '@/abstract.json'
 import { inter, spaceGrotesk, montserrat } from '@/app/fonts'

@@ -1,5 +1,4 @@
 import styles from './projects.module.css'
-import Link from 'next/link'
 import { FaArrowRight, FaHandsHelping, FaUsers, FaChartLine } from 'react-icons/fa'
 
 const projects = [
