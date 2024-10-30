@@ -8,6 +8,7 @@
 	background-color: var(--neutral-50);
 	backdrop-filter: blur(10px);
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	font-family: var(--font-raleway);
 }
 
 .navContainer {
@@ -20,7 +21,7 @@
 }
 
 .logo {
-	font-family: var(--font-playfair-italic);
+	font-weight: 700;
 	font-size: 1.5rem;
 	font-weight: 900;
 	text-decoration: none;
@@ -31,15 +32,15 @@
 }
 
 .highlight {
-	font-family: var(--font-playfair-italic);
 	color: var(--primary-500);
 	margin-left: 4px;
 }
 
 .desktopMenu {
 	display: flex;
-	gap: 2rem;
+	gap: 1rem;
 	align-items: center;
+	font-weight: 600;
 }
 
 .navLink {
@@ -48,6 +49,7 @@
 	padding: 0.5rem 1rem;
 	transition: all 0.3s ease;
 	position: relative;
+	font-weight: 600;
 }
 
 .navLink:hover {
@@ -56,7 +58,7 @@
 
 .navLink.active {
 	color: var(--primary-500);
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .navLink.active::after {
@@ -93,6 +95,7 @@
 	border: none;
 	cursor: pointer;
 	padding: 0.5rem;
+	font-weight: 600;
 }
 
 .hamburger {
@@ -148,6 +151,7 @@
 	opacity: 0;
 	transform: translateY(-10px);
 	transition: all 0.3s ease;
+	text-align: center;
 }
 
 .show {
@@ -158,10 +162,11 @@
 .mobileLink {
 	color: var(--neutral-600);
 	text-decoration: none;
-	padding: 1rem;
+	padding: 0.5rem;
 	transition: all 0.3s ease;
 	width: 100%;
 	text-align: center;
+	font-weight: 500;
 }
 
 .mobileLink:hover {
@@ -185,13 +190,24 @@
 	font-weight: 500;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	font-size: 1rem;
 }
 
 .mobileCta:hover {
 	background: var(--primary-600);
 }
 
-@media (max-width: 768px) {
+.homeLink {
+	display: none;
+}
+
+@media (min-width: 455px) {
+	.homeLink {
+		display: inline;
+	}
+}
+
+@media (max-width: 868px) {
 	.desktopMenu {
 		display: none;
 	}
@@ -204,16 +220,3 @@
 		display: block;
 	}
 }
-
-/* If you need more specific control at different breakpoints */
-/* @media screen and (min-width: 768px) {
-  .logo {
-    width: clamp(150px, 20vw, 250px);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .logo {
-    width: clamp(180px, 15vw, 300px);
-  }
-} */

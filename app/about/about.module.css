@@ -1,15 +1,102 @@
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(120deg, var(--accent-600), var(--primary-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--gray-600);
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.textBox {
+    padding: 2rem;
+    background: var(--gray-50);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imageBox {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--accent-100), var(--primary-100));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-600);
+    font-size: 1.5rem;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.valueCard {
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.valueCard:hover {
+    transform: translateY(-5px);
+}
+
+.heading2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--gray-800);
+}
+
+.heading3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
 }
 
 .paragraph {
-  margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--gray-600);
 }

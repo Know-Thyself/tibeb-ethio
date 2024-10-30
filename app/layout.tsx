@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { inter, robotoMono } from './fonts'
 import Navbar from '../components/navigation/navbar'
 import '@/styles/colors.css'
-// import { GeistSans } from 'geist/font/sans'
-// import { GeistMono } from 'geist/font/mono'
-import { playfairDisplay, playfairDisplayItalic, montserrat, raleway } from './fonts'
+import { spaceGrotesk, inter, montserrat } from '@/app/fonts'
 
 export const metadata: Metadata = {
 	title: 'Tibeb Ethiopia',
@@ -20,7 +17,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang='en'
-			className={`${playfairDisplay.variable} ${playfairDisplayItalic.variable} ${montserrat.variable} ${raleway.variable}`}
+			className={`${spaceGrotesk.variable} ${inter.variable} ${montserrat.variable}`}
 		>
 			<body>
 				<Navbar />
