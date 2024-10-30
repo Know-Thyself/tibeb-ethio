@@ -19,6 +19,9 @@ export default function RootLayout({
 			lang='en'
 			className={`${spaceGrotesk.variable} ${inter.variable} ${montserrat.variable}`}
 		>
+			<head>
+				<link rel='icon' href='/favicon.png' type='image/png' sizes='32x32' />
+			</head>
 			<body>
 				<Navbar />
 				{children}
