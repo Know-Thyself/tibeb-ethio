@@ -22,7 +22,8 @@
 	gap: 1rem;
 	text-align: center;
 	overflow: hidden;
-	min-height: 60vh;
+	min-height: 50vh;
+	margin: 0 auto;
 }
 
 /* Add an animated background pattern */
@@ -43,9 +44,6 @@
 
 .title {
 	font-size: 1.75rem;
-	text-shadow: 0 2px 4px rgba(47, 41, 187, 0.3);
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 	color: var(--secondary-100);  /* Light gold */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -74,7 +72,8 @@
 }
 
 .pageTitle {
-	font-size: 2.5rem;
+	font-size: 1.5rem;
+	color: var(--primary-600);
 }
 
 .paragraph {
@@ -101,15 +100,11 @@
 	font-family: 'Inter', sans-serif;
 	line-height: 1.6;
 	border-radius: 8px;
-	padding: 0 1.5rem;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	animation: fadeIn 0.8s ease-out forwards;
 	background: var(--background-primary);
     color: var(--text-primary);
     padding: 0 5%;
-
-	/* margin: 1rem 0; */
-    padding: 1rem 5%;
 }
 
 .pillarsWrapper {
@@ -164,6 +159,10 @@
 
 	.tibeb {
 		font-size: 2.75rem;
+	}
+
+	.pageTitle {
+		font-size: 2.25rem;
 	}
 
 	.pillarsWrapper {

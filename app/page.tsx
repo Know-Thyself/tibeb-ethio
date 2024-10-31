@@ -110,7 +110,7 @@ export default function Home() {
 						styles.pageTitle
 					}`}
 				>
-					Our <span className={styles.highlightText}>Mission</span>
+					Our Mission
 				</h1>
 				{/* ... */}
 			</section>

@@ -165,7 +165,7 @@ export default function Projects() {
 							className={styles.imageWrapper}
 							style={{ background: project.gradient }}
 						>
-							<div className={styles.placeholderText}>
+							<div className={`${styles.placeholderText} ${mounted ? spaceGrotesk.className : ''}`}>
 								Image for {project.title}
 							</div>
 							<div className={styles.overlay}>
