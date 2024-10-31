@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../components/navigation/navbar'
 import '@/styles/colors.css'
-import { spaceGrotesk, inter, montserrat } from '@/app/fonts'
+import { spaceGrotesk, inter } from '@/app/fonts'
 import Footer from '@/components/footer/footer'
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang='en'
-			className={`${spaceGrotesk.variable} ${inter.variable} ${montserrat.variable}`}
+			className={`${spaceGrotesk.variable} ${inter.variable}`}
 		>
 			<head>
 				<link rel='icon' href='/favicon.png' type='image/png' sizes='32x32' />

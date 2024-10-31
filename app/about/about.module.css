@@ -6,7 +6,7 @@
 
 .hero {
 	position: relative;
-	min-height: 40vh;
+	min-height: 30vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -17,10 +17,10 @@
 		var(--primary-800),
 		var(--secondary-900)
 	);
-	padding: 4rem 2rem;
+	padding: 3rem 1rem;
 	overflow: hidden;
-    text-align: center;
-    gap: 1rem;
+	text-align: center;
+	gap: 1rem;
 }
 
 .hero::before {
@@ -45,13 +45,13 @@
 }
 
 .title {
-	font-size: 3rem;
+	font-size: 1.75rem;
 	color: var(--background-primary);
 	position: relative;
 }
 
 .subtitle {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	color: var(--secondary-300);
 	position: relative;
 	z-index: 1;
@@ -60,9 +60,27 @@
 .grid {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 4rem 2rem;
+	padding: 2rem 1rem;
 	display: grid;
-	gap: 4rem;
+	gap: 2rem;
+	grid-template-columns: 1fr;
+}
+
+/* Grid ordering for mobile */
+.grid > div:nth-of-type(1) {
+	order: 1;
+}
+.grid > div:nth-of-type(2) {
+	order: 2;
+}
+.grid > div:nth-of-type(3) {
+	order: 4;
+}
+.grid > div:nth-of-type(4) {
+	order: 3;
+}
+.grid > div:nth-of-type(5) {
+	order: 5;
 }
 
 .textBox {
@@ -90,7 +108,7 @@
 }
 
 .heading2 {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	color: var(--primary-800);
 	position: relative;
 	padding-bottom: 0.5rem;
@@ -112,7 +130,7 @@
 }
 
 .paragraph {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	line-height: 1.8;
 	color: var(--text-secondary);
 }
@@ -124,14 +142,14 @@
 
 .valuesGrid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 2rem;
-	margin-top: 3rem;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+	margin-top: 2rem;
 }
 
 .valueCard {
 	background: var(--background-primary);
-	padding: 2rem;
+	padding: 1.5rem;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease;
@@ -143,56 +161,9 @@
 	margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-	.grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (max-width: 767px) {
-	.title {
-		font-size: 1.75rem;
-	}
-
-	.subtitle {
-		font-size: 1.25rem;
-	}
-
-	.grid {
-		gap: 2rem;
-		padding: 2rem 1rem;
-	}
-
-	.hero {
-		padding: 3rem 1rem;
-		min-height: 30vh;
-	}
-
-	.heading2 {
-		font-size: 1.75rem;
-	}
-
-	.paragraph {
-		font-size: 1.2rem;
-	}
-
-	.placeholderImage {
-		height: 200px;
-	}
-
-	.valuesGrid {
-		gap: 1.5rem;
-		margin-top: 2rem;
-	}
-
-	.valueCard {
-		padding: 1.5rem;
-	}
-}
-
 .placeholderImage {
 	width: 100%;
-	height: 300px;
+	height: 200px;
 	background-color: #f0f0f0;
 	display: flex;
 	align-items: center;
@@ -225,4 +196,56 @@
 .fullWidth .heading2::after {
 	left: 0;
 	transform: none;
+}
+
+/* Tablet and Desktop styles */
+@media (min-width: 768px) {
+	.hero {
+		min-height: 40vh;
+		padding: 4rem 2rem;
+	}
+
+	.title {
+		font-size: 3rem;
+	}
+
+	.subtitle {
+		font-size: 1.5rem;
+	}
+
+	.grid {
+		padding: 4rem 2rem;
+		gap: 4rem;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+
+	.grid > div:nth-of-type(3) {
+		order: 3;
+	}
+	.grid > div:nth-of-type(4) {
+		order: 4;
+	}
+
+	.heading2 {
+		font-size: 2rem;
+	}
+
+	.paragraph {
+		font-size: 1.1rem;
+	}
+
+	.valuesGrid {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
+
+	.valueCard {
+		padding: 2rem;
+	}
+
+	.placeholderImage {
+		height: 300px;
+	}
 }

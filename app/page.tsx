@@ -1,9 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './page.module.css'
 import abstractData from '@/abstract.json'
-import { inter, spaceGrotesk, montserrat } from '@/app/fonts'
+import { inter, spaceGrotesk } from '@/app/fonts'
 import {
 	FaNetworkWired,
 	FaBook,
@@ -33,7 +33,7 @@ const subItemStyles = {
 		icon: FaPiggyBank,
 		gradient: 'linear-gradient(135deg, var(--primary-500), var(--primary-600))',
 	},
-	'Good Governance & business Ethics & Peace': {
+	'Good Governance, Business Ethics & Peace': {
 		icon: FaBalanceScale,
 		gradient:
 			'linear-gradient(135deg, var(--secondary-500), var(--secondary-600))',
@@ -49,9 +49,14 @@ interface Paragraph {
 }
 
 export default function Home() {
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
 	const { title, subtitle, paragraphs } = abstractData[0]
 	const Bold = ({ children }: { children: React.ReactNode }) => {
-		return <span className={montserrat.className}>{children}</span>
+		return <span className={mounted ? inter.className : ''}>{children}</span>
 	}
 
 	function parseItalics(text: string) {
@@ -70,13 +75,19 @@ export default function Home() {
 		<main className={styles.main}>
 			<div className={styles.hero}>
 				<div className={styles.heroPattern} />
-				<h1 className={`${styles.title} ${montserrat.className}`}>
+				<h1
+					className={`${styles.title} ${mounted ? inter.className : ''}`}
+				>
 					<Bold>
 						{title.split('TIBEB').map((part, i) => (
 							<React.Fragment key={i}>
 								{part.toUpperCase()}
 								{i === 0 && (
-									<span className={`${styles.tibeb} ${spaceGrotesk.className}`}>
+									<span
+										className={`${styles.tibeb} ${
+											mounted ? spaceGrotesk.className : ''
+										}`}
+									>
 										TIBEB
 									</span>
 								)}
@@ -84,18 +95,28 @@ export default function Home() {
 						))}
 					</Bold>
 				</h1>
-				<h2 className={`${styles.subtitle} ${spaceGrotesk.className}`}>
+				<h2
+					className={`${styles.subtitle} ${
+						mounted ? spaceGrotesk.className : ''
+					}`}
+				>
 					{subtitle.toUpperCase()}
 				</h2>
 			</div>
 			<ScrollAnimation />
 			<section className={`${styles.section} ${styles.fadeInSection}`}>
-				<h2>
+				<h1
+					className={`${mounted ? spaceGrotesk.className : ''} ${
+						styles.pageTitle
+					}`}
+				>
 					Our <span className={styles.highlightText}>Mission</span>
-				</h2>
+				</h1>
 				{/* ... */}
 			</section>
-			<section className={`${styles.section} ${inter.className}`}>
+			<section
+				className={`${styles.section} ${mounted ? inter.className : ''}`}
+			>
 				{paragraphs.map((paragraph: string | Paragraph, index: number) => (
 					<div key={index} className={styles.paragraph}>
 						{typeof paragraph === 'string' ? (

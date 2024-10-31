@@ -1,7 +1,6 @@
 .container {
     padding-top: 5rem;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
 }
 
 .contactWrapper {
@@ -14,7 +13,7 @@
 }
 
 .formSection {
-    background: white;
+    background: var(--primary-background);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -22,7 +21,7 @@
 
 .title {
     font-size: 2.5rem;
-    color: #333;
+    color: var(--primary-text);
     margin-bottom: 2rem;
 }
 
@@ -49,8 +48,8 @@
 }
 
 .submitButton {
-    background: #007bff;
-    color: white;
+    background: var(--accent-700);
+    color: var(--background-primary);
     padding: 1rem 2rem;
     border: none;
     border-radius: 8px;
@@ -60,7 +59,7 @@
 }
 
 .submitButton:hover {
-    background: #0056b3;
+    background: var(--accent-800);
 }
 
 .infoSection {
@@ -69,8 +68,8 @@
 }
 
 .infoCard {
-    background: #2c3e50;
-    color: white;
+    background: var(--secondary-500);
+    color: var(--primary-background);
     padding: 2rem;
     border-radius: 15px;
     width: 100%;
@@ -97,7 +96,7 @@
 
 .icon {
     font-size: 1.5rem;
-    color: #007bff;
+    color: var(--accent-700);
 }
 
 .socialLinks {
@@ -111,13 +110,13 @@
 }
 
 .socialIcons a {
-    color: white;
+    color: var(--accent-700);
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
 .socialIcons a:hover {
-    color: #007bff;
+    color: var(--accent-800);
 }
 
 /* Responsive Design */
@@ -132,5 +131,9 @@
 
     .infoCard {
         height: auto;
+    }
+
+    .submitButton {
+        font-size: 1.75rem;
     }
 }

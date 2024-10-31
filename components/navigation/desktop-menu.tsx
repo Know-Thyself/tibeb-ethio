@@ -1,22 +1,25 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './navbar.module.css'
-import { montserrat } from '@/app/fonts'
+import { inter } from '@/app/fonts'
 
-export default function NavLinks() {
+export default function NavLinks({ mounted }: { mounted: boolean }) {
 	const pathname = usePathname()
 
 	const isActive = (path: string) => pathname === path
 
 	return (
-		<div className={`${styles.desktopMenu} ${montserrat.className}`}>
+		<div className={styles.desktopMenu}>
 			<Link
 				href='/'
-				className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
+				className={`${styles.navLink} ${
+					isActive('/') ? styles.active : ''
+				}`}
 			>
-				Home
+				<p className={mounted ? inter.className : ''}>Home</p>
 			</Link>
 			<Link
 				href='/about'
@@ -24,7 +27,7 @@ export default function NavLinks() {
 					isActive('/about') ? styles.active : ''
 				}`}
 			>
-				About
+				<p className={mounted ? inter.className : ''}>About</p>
 			</Link>
 			<Link
 				href='/projects'
@@ -32,7 +35,7 @@ export default function NavLinks() {
 					isActive('/projects') ? styles.active : ''
 				}`}
 			>
-				Projects
+				<p className={mounted ? inter.className : ''}>Projects</p>
 			</Link>
 			<Link
 				href='/services'
@@ -40,7 +43,7 @@ export default function NavLinks() {
 					isActive('/services') ? styles.active : ''
 				}`}
 			>
-				Services
+				<p className={mounted ? inter.className : ''}>Services</p>
 			</Link>
 			<Link
 				href='/contact'
@@ -48,7 +51,7 @@ export default function NavLinks() {
 					isActive('/contact') ? styles.active : ''
 				}`}
 			>
-				Contact
+				<p className={mounted ? inter.className : ''}>Contact</p>
 			</Link>
 			<button className={styles.ctaButton}>Get Registered</button>
 		</div>

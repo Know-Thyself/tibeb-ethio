@@ -1,5 +1,14 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { spaceGrotesk } from '@/app/fonts'
+import {
+	FaArrowRight,
+	FaHandsHelping,
+	FaUsers,
+	FaChartLine,
+} from 'react-icons/fa'
 import styles from './projects.module.css'
-import { FaArrowRight, FaHandsHelping, FaUsers, FaChartLine } from 'react-icons/fa'
 
 const projects = [
 	{
@@ -130,63 +139,76 @@ const projects = [
 ]
 
 export default function Projects() {
-    return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>Community Projects</h1>
-            <p className={styles.subtitle}>Making a difference together</p>
-            
-            <div className={styles.projectsGrid}>
-                {projects.map((project, index) => (
-                    <div 
-                        key={index} 
-                        className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
-                        data-align-right={project.alignRight}
-                    >
-                        <div 
-                            className={styles.imageWrapper}
-                            style={{ background: project.gradient }}
-                        >
-                            <div className={styles.placeholderText}>
-                                Image for {project.title}
-                            </div>
-                            <div className={styles.overlay}>
-                                <div className={styles.links}>
-                                    <button className={styles.actionButton}>
-                                        <FaHandsHelping /> Get Involved
-                                    </button>
-                                    <button className={styles.actionButton}>
-                                        <FaArrowRight /> Learn More
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className={styles.content}>
-                            <h3 className={styles.projectTitle}>{project.title}</h3>
-                            <p className={styles.description}>{project.description}</p>
-                            <div className={styles.projectMeta}>
-                                <span className={styles.location}>{project.location}</span>
-                                <span className={styles.status}>{project.status}</span>
-                            </div>
-                            <div className={styles.projectStats}>
-                                <span className={styles.statItem}>
-                                    <FaUsers /> {project.participants} Participants
-                                </span>
-                                <span className={styles.statItem}>
-                                    <FaChartLine /> {project.impact}
-                                </span>
-                            </div>
-                            <div className={styles.tags}>
-                                {project.tags.map((tag, tagIndex) => (
-                                    <span key={tagIndex} className={styles.tag}>
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+
+	return (
+		<div className={styles.container}>
+			<h1 className={`${styles.title} ${mounted ? spaceGrotesk.className : ''}`}>
+				Community Projects
+			</h1>
+			<p className={styles.subtitle}>Making a difference together</p>
+
+			<div className={styles.projectsGrid}>
+				{projects.map((project, index) => (
+					<div
+						key={index}
+						className={`${styles.projectCard} ${
+							project.featured ? styles.featured : ''
+						}`}
+						data-align-right={project.alignRight}
+					>
+						<div
+							className={styles.imageWrapper}
+							style={{ background: project.gradient }}
+						>
+							<div className={styles.placeholderText}>
+								Image for {project.title}
+							</div>
+							<div className={styles.overlay}>
+								<div className={styles.links}>
+									<button className={styles.actionButton}>
+										<FaHandsHelping /> Get Involved
+									</button>
+									<button className={styles.actionButton}>
+										<FaArrowRight /> Learn More
+									</button>
+								</div>
+							</div>
+						</div>
+						<div className={styles.content}>
+							<h3
+								className={`${styles.projectTitle} ${mounted ? spaceGrotesk.className : ''}`}
+							>
+								{project.title}
+							</h3>
+							<p className={styles.description}>{project.description}</p>
+							<div className={styles.projectMeta}>
+								<span className={styles.location}>{project.location}</span>
+								<span className={styles.status}>{project.status}</span>
+							</div>
+							<div className={styles.projectStats}>
+								<span className={styles.statItem}>
+									<FaUsers /> {project.participants} Participants
+								</span>
+								<span className={styles.statItem}>
+									<FaChartLine /> {project.impact}
+								</span>
+							</div>
+							<div className={styles.tags}>
+								{project.tags.map((tag, tagIndex) => (
+									<span key={tagIndex} className={styles.tag}>
+										{tag}
+									</span>
+								))}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	)
 }

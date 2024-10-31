@@ -33,7 +33,7 @@
 }
 
 .highlight {
-	color: var(--primary-500);
+	color: var(--primary-600);
 	margin-left: 4px;
 }
 
@@ -54,11 +54,11 @@
 }
 
 .navLink:hover {
-	color: var(--neutral-900);
+	color: var(--neutral-750);
 }
 
 .navLink.active {
-	color: var(--primary-500);
+	color: var(--neutral-750);
 	font-weight: 700;
 }
 
@@ -69,14 +69,13 @@
 	left: 1rem;
 	right: 1rem;
 	height: 2px;
-	background-color: var(--primary-500);
+	background-color: var(--neutral-750);
 	border-radius: 2px;
 }
 
 .ctaButton {
-	background: var(--primary-500);
 	background: var(--accent-600); 
-	color: white;
+	color: var(--background-primary);
 	padding: 0.75rem 1.5rem;
 	border-radius: 8px;
 	border: none;
@@ -170,6 +169,7 @@
 	width: 100%;
 	text-align: center;
 	font-weight: 500;
+	display: inline;
 }
 
 .mobileLink:hover {
@@ -177,7 +177,7 @@
 }
 
 .mobileLink.active {
-	color: var(--primary-500);
+	color: var(--primary-600);
 	font-weight: 600;
 	background-color: var(--primary-50);
 }
@@ -187,7 +187,7 @@
 	margin-top: 1rem;
 	padding: 0.75rem;
 	background: var(--accent-600); 
-	color: white;
+	color: var(--background-primary);
 	border: none;
 	border-radius: 8px;
 	font-weight: 500;
