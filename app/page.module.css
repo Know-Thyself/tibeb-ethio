@@ -44,10 +44,9 @@
 
 .title {
 	font-size: 1.75rem;
-	color: var(--secondary-100);  /* Light gold */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	color: var(--secondary-100); /* Light gold */
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 
 .tibeb {
 	font-weight: 600;
@@ -67,16 +66,32 @@
 	font-size: 1.25rem;
 	font-weight: 700;
 	letter-spacing: 2px;
-	color: var(--secondary-100);  /* Light gold */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	color: var(--secondary-100); /* Light gold */
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .pageTitle {
 	font-size: 1.5rem;
 	color: var(--primary-600);
-	margin: 1rem 0;  /* Add explicit margin control */
-    padding: 0;      /* Reset any padding */
-    line-height: 1.2;  /* Control line height */
+	margin: 1rem 0; /* Add explicit margin control */
+	padding: 0; /* Reset any padding */
+	line-height: 1.2; /* Control line height */
+	padding-bottom: 0.5rem;
+}
+
+.pageTitle::after {
+	content: '';
+	position: absolute;
+	left: 5%;
+	bottom: 0;
+	width: 60px;
+	height: 3px;
+	background: var(--secondary-500);
+	transition: width 0.3s ease;
+}
+
+.pageTitle:hover::after {
+	width: 100px;
 }
 
 .paragraph {
@@ -84,17 +99,24 @@
 	font-weight: 500;
 	font-size: 1.1rem;
 	margin-bottom: 16px;
-	line-height: 1.6;
-	color: #2d3748;
+	color: var(--text-primary);
+	margin: 0;
 }
 
 .paragraph p {
-	text-align: justify;
-	hyphens: auto;
-	-webkit-hyphens: auto;
-	-ms-hyphens: auto;
-	word-break: break-word;
+	text-align: left;
 	color: var(--text-secondary);
+	line-height: 1.6;
+}
+
+.paragraph:nth-child(1) {
+	box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+		rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+		rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+		rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+		rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+	margin-bottom: 1rem;
+	padding: 1rem;
 }
 
 .section {
@@ -106,8 +128,8 @@
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	animation: fadeIn 0.8s ease-out forwards;
 	background: var(--background-primary);
-    color: var(--text-primary);
-    padding: 0 5%;
+	color: var(--text-primary);
+	padding: 0 5%;
 }
 
 .pillarsWrapper {
@@ -123,8 +145,8 @@
 	width: 100%;
 	animation: fadeIn 0.5s ease-out forwards;
 	background: var(--background-primary);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border: 1px solid var(--border-color);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pillarCard:hover {
@@ -147,9 +169,8 @@
 	}
 
 	.pageTitle {
-        font-size: 1.75rem;
-    }
-
+		font-size: 1.75rem;
+	}
 }
 
 @media (min-width: 869px) {
@@ -200,6 +221,11 @@
 		max-width: 70%;
 		font-size: 2.25rem;
 	}
+
+	.paragraph {
+		line-height: 1.8;
+	}
+
 }
 
 /* Large desktop devices */
@@ -244,7 +270,7 @@
 	padding: 1.5rem;
 	line-height: 1.6;
 	color: var(--text-secondary);
-    padding: 1.5rem;
+	padding: 1.5rem;
 }
 
 /* Stagger children animations */
@@ -267,139 +293,137 @@
 	animation-delay: 0.6s;
 }
 
-
-
 /* 1. Animated Hero Pattern */
 .heroPattern {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 20px,
-        var(--secondary-500) 20px,
-        var(--secondary-500) 21px
-    );
-    opacity: 0.05;
-    animation: patternMove 30s linear infinite;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 20px,
+		var(--secondary-500) 20px,
+		var(--secondary-500) 21px
+	);
+	opacity: 0.05;
+	animation: patternMove 30s linear infinite;
 }
 
 @keyframes patternMove {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 50px 50px;
-    }
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 50px 50px;
+	}
 }
 
 /* 2. Interactive Pillar Cards */
 .pillarCard {
-    position: relative;
-    overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .pillarCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(
-        90deg,
-        var(--primary-500),
-        var(--secondary-500),
-        var(--accent-500)
-    );
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(
+		90deg,
+		var(--primary-500),
+		var(--secondary-500),
+		var(--accent-500)
+	);
+	transform: translateX(-100%);
+	transition: transform 0.6s ease;
 }
 
 .pillarCard:hover::before {
-    transform: translateX(0);
+	transform: translateX(0);
 }
 
 /* 3. Animated Icons/Numbers */
 .statNumber {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-600);
-    transition: all 0.3s ease;
-    display: inline-block;
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: var(--primary-600);
+	transition: all 0.3s ease;
+	display: inline-block;
 }
 
 .statNumber:hover {
-    transform: scale(1.1);
-    color: var(--secondary-500);
+	transform: scale(1.1);
+	color: var(--secondary-500);
 }
 
 /* 4. Interactive Text Highlights */
 .highlightText {
-    position: relative;
-    color: var(--primary-600);
-    cursor: pointer;
-    transition: all 0.3s ease;
+	position: relative;
+	color: var(--primary-600);
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
 .highlightText::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--secondary-400);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: var(--secondary-400);
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
 }
 
 .highlightText:hover::after {
-    transform: scaleX(1);
+	transform: scaleX(1);
 }
 
 /* 5. Scroll-Triggered Animations */
 .fadeInSection {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: all 0.6s ease;
 	will-change: opacity, transform;
 }
 
 .fadeInSection.visible {
-    opacity: 1;
-    transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
 /* 6. Interactive Button Styles */
 .ctaButton {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    z-index: 1;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	z-index: 1;
 }
 
 .ctaButton::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(
-        45deg,
-        var(--primary-500),
-        var(--secondary-500),
-        var(--accent-500)
-    );
-    transition: transform 0.6s ease;
-    z-index: -1;
-    transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300%;
+	height: 300%;
+	background: linear-gradient(
+		45deg,
+		var(--primary-500),
+		var(--secondary-500),
+		var(--accent-500)
+	);
+	transition: transform 0.6s ease;
+	z-index: -1;
+	transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
 }
 
 .ctaButton:hover::before {
-    transform: translate(-50%, -50%) rotate(45deg) translateY(0);
+	transform: translate(-50%, -50%) rotate(45deg) translateY(0);
 }
