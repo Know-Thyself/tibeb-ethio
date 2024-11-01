@@ -231,18 +231,17 @@
 
 .pillarIcon {
 	font-size: 2rem;
-	color: white;
+	color: var(--background-primary);
 }
 
 .pillarTitle {
-	color: white;
+	color: var(--background-primary);
 	font-size: 1.25rem;
 	margin: 0;
 }
 
 .pillarContent {
 	padding: 1.5rem;
-	color: #4a5568;
 	line-height: 1.6;
 	color: var(--text-secondary);
     padding: 1.5rem;
