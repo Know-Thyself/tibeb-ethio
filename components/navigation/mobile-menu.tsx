@@ -77,7 +77,10 @@ export default function MobileMenu({
 				</Link>
 				<button
 					className={styles.mobileCta}
-					onClick={() => router.push('/register')}
+					onClick={() => {
+						setIsOpen(false)
+						router.push('/register')
+					}}
 				>
 					Get Registered
 				</button>
