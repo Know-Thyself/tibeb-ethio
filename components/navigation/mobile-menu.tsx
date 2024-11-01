@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import styles from './navbar.module.css'
 import { inter } from '@/app/fonts'
 
@@ -15,7 +15,7 @@ export default function MobileMenu({
 	setIsOpen: (isOpen: boolean) => void
 }) {
 	const pathname = usePathname()
-
+	const router = useRouter()
 	const isActive = (path: string) => pathname === path
 
 	return (
@@ -75,7 +75,12 @@ export default function MobileMenu({
 						Contact
 					</p>
 				</Link>
-				<button className={styles.mobileCta}>Start Investing</button>
+				<button
+					className={styles.mobileCta}
+					onClick={() => router.push('/register')}
+				>
+					Get Registered
+				</button>
 			</div>
 		</>
 	)
