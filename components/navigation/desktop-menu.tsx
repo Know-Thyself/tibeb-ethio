@@ -1,10 +1,11 @@
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import styles from './navbar.module.css'
 import { inter } from '@/app/fonts'
 
-export default function NavLinks({ mounted }: { mounted: boolean }) {
+export default function DesktopMenu({ mounted }: { mounted: boolean }) {
 	const pathname = usePathname()
+	const router = useRouter()
 
 	const isActive = (path: string) => pathname === path
 
@@ -12,9 +13,7 @@ export default function NavLinks({ mounted }: { mounted: boolean }) {
 		<div className={styles.desktopMenu}>
 			<Link
 				href='/'
-				className={`${styles.navLink} ${
-					isActive('/') ? styles.active : ''
-				}`}
+				className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}
 			>
 				<p className={mounted ? inter.className : ''}>Home</p>
 			</Link>
@@ -50,7 +49,12 @@ export default function NavLinks({ mounted }: { mounted: boolean }) {
 			>
 				<p className={mounted ? inter.className : ''}>Contact</p>
 			</Link>
-			<button className={styles.ctaButton}>Get Registered</button>
+			<button 
+				className={styles.ctaButton}
+				onClick={() => router.push('/register')}
+			>
+				Get Registered
+			</button>
 		</div>
 	)
 }

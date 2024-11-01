@@ -1,13 +1,19 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './navbar.module.css'
 import { inter } from '@/app/fonts'
 
-export default function MobileMenu({ mounted }: { mounted: boolean }) {
-	const [isOpen, setIsOpen] = useState(false)
+export default function MobileMenu({
+	mounted,
+	isOpen,
+	setIsOpen,
+}: {
+	mounted: boolean
+	isOpen: boolean
+	setIsOpen: (isOpen: boolean) => void
+}) {
 	const pathname = usePathname()
 
 	const isActive = (path: string) => pathname === path

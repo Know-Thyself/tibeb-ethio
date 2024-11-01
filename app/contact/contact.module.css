@@ -1,28 +1,28 @@
 .container {
-    padding-top: 5rem;
+    padding-top: 3rem;
     min-height: 100vh;
 }
 
 .contactWrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
 .formSection {
     background: var(--primary-background);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary-text);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .form {
@@ -35,7 +35,7 @@
 .inputGroup textarea {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #e1e1e1;
+    border: 2px solid var(--neutral-200);
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -43,7 +43,7 @@
 
 .inputGroup input:focus,
 .inputGroup textarea:focus {
-    border-color: #007bff;
+    border-color: var(--neutral-600);
     outline: none;
 }
 
@@ -70,22 +70,22 @@
 .infoCard {
     background: var(--secondary-500);
     color: var(--primary-background);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .contactInfo {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .infoItem {
@@ -100,7 +100,7 @@
 }
 
 .socialLinks {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .socialIcons {
@@ -119,21 +119,38 @@
     color: var(--accent-800);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Tablet and up */
+@media (min-width: 768px) {
+    .container {
+        padding-top: 5rem;
+    }
+
     .contactWrapper {
-        grid-template-columns: 1fr;
+        padding: 2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .formSection {
+        padding: 2rem;
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
     }
 
     .infoCard {
-        height: auto;
+        padding: 2rem;
+        height: 100%;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
     }
 
     .submitButton {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 }
