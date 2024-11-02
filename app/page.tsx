@@ -14,6 +14,7 @@ import {
 	FaLightbulb,
 } from 'react-icons/fa' // Add other icons as needed
 import ScrollAnimation from '@/components/scroll-animation'
+import { motion } from 'framer-motion'
 
 const subItemStyles = {
 	'Organization & Networking': {
@@ -78,7 +79,12 @@ export default function Home() {
 		<main className={styles.main}>
 			<div className={styles.hero}>
 				<div className={styles.heroPattern} />
-				<h1 className={`${styles.title} ${mounted ? inter.className : ''}`}>
+				<motion.h1
+					className={`${styles.title} ${mounted ? inter.className : ''}`}
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6 }}
+				>
 					<Bold>
 						{title.split('TIBEB').map((part, i) => (
 							<React.Fragment key={i}>
@@ -95,14 +101,17 @@ export default function Home() {
 							</React.Fragment>
 						))}
 					</Bold>
-				</h1>
-				<h2
+				</motion.h1>
+				<motion.h2
 					className={`${styles.subtitle} ${
 						mounted ? spaceGrotesk.className : ''
 					}`}
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6, delay: 0.4 }}
 				>
 					{subtitle.toUpperCase()}
-				</h2>
+				</motion.h2>
 			</div>
 			<ScrollAnimation />
 			<section className={`${styles.section} ${styles.fadeInSection}`}>

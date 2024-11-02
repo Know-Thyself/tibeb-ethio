@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import styles from './contact.module.css'
+import { spaceGrotesk, inter } from '@/app/fonts'
 import {
 	FaEnvelope,
 	FaPhone,
@@ -11,7 +11,8 @@ import {
 	FaInstagram,
 	FaCheckCircle,
 } from 'react-icons/fa'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import styles from './contact.module.css'
 
 export default function Contact() {
 	const [formData, setFormData] = useState({
@@ -20,8 +21,13 @@ export default function Contact() {
 		subject: '',
 		message: '',
 	})
+	const [mounted, setMounted] = useState(false)
 	const [showAlert, setShowAlert] = useState(false)
 	const [isSubmitting, setIsSubmitting] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -66,16 +72,23 @@ export default function Contact() {
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={`${styles.container} ${mounted ? inter.className : ''}`}>
 			{/* Success Alert */}
 			<div className={`${styles.alert} ${showAlert ? styles.show : ''}`}>
 				<FaCheckCircle />
 				Message sent successfully!
 			</div>
+			<div className={styles.titleWrapper}>
+				<h1
+					className={`${styles.title} ${mounted ? spaceGrotesk.className : ''}`}
+				>
+					Get in Touch
+				</h1>
+				<p className={styles.subtitle}>Let's start a conversation</p>
+			</div>
 			<div className={styles.contactWrapper}>
 				{/* Left side - Contact Form */}
 				<div className={styles.formSection}>
-					<h1 className={styles.title}>Get in Touch</h1>
 					<form className={styles.form} onSubmit={handleSubmit}>
 						<div className={styles.inputGroup}>
 							<input
@@ -131,7 +144,7 @@ export default function Contact() {
 				{/* Right side - Contact Information */}
 				<div className={styles.infoSection}>
 					<div className={styles.infoCard}>
-						<h2 className={styles.subtitle}>Contact Information</h2>
+						<h2 className={styles.infoTitle}>Contact Information</h2>
 						<div className={styles.contactInfo}>
 							<div className={styles.infoItem}>
 								<FaEnvelope className={styles.icon} />

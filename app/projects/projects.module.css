@@ -25,6 +25,8 @@
 	gap: 2rem;
 	margin: 0 auto;
 	grid-auto-flow: dense;
+	opacity: 0;
+	animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .projectCard {
@@ -301,11 +303,6 @@
 	}
 }
 
-.projectCard {
-	animation: fadeInUp 0.6s ease forwards;
-	opacity: 0;
-}
-
 .projectCard:nth-child(2) {
 	animation-delay: 0.2s;
 }
@@ -348,7 +345,7 @@
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
-		transform: translateY(20px);
+		transform: translateY(30px);
 	}
 	to {
 		opacity: 1;
