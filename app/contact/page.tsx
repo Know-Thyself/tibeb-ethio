@@ -1,29 +1,128 @@
+'use client'
+
 import React from 'react'
 import styles from './contact.module.css'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa'
+import {
+	FaEnvelope,
+	FaPhone,
+	FaMapMarkerAlt,
+	FaLinkedin,
+	FaTwitter,
+	FaInstagram,
+	FaCheckCircle,
+} from 'react-icons/fa'
+import { useState } from 'react'
 
 export default function Contact() {
+	const [formData, setFormData] = useState({
+		name: '',
+		email: '',
+		subject: '',
+		message: '',
+	})
+	const [showAlert, setShowAlert] = useState(false)
+	const [isSubmitting, setIsSubmitting] = useState(false)
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		setFormData(prev => ({
+			...prev,
+			[e.target.name]: e.target.value,
+		}))
+	}
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault()
+		setIsSubmitting(true)
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			})
+
+			if (response.ok) {
+				setShowAlert(true)
+				setFormData({
+					name: '',
+					email: '',
+					subject: '',
+					message: '',
+				})
+				setTimeout(() => setShowAlert(false), 3000)
+			} else {
+				throw new Error('Failed to send message')
+			}
+		} catch (error) {
+			console.error('Error:', error)
+			// Handle error (show error message to user)
+		} finally {
+			setIsSubmitting(false)
+		}
+	}
+
 	return (
 		<div className={styles.container}>
+			{/* Success Alert */}
+			<div className={`${styles.alert} ${showAlert ? styles.show : ''}`}>
+				<FaCheckCircle />
+				Message sent successfully!
+			</div>
 			<div className={styles.contactWrapper}>
 				{/* Left side - Contact Form */}
 				<div className={styles.formSection}>
 					<h1 className={styles.title}>Get in Touch</h1>
-					<form className={styles.form}>
+					<form className={styles.form} onSubmit={handleSubmit}>
 						<div className={styles.inputGroup}>
-							<input type='text' placeholder='Your Name' required />
+							<input
+								type='text'
+								name='name'
+								value={formData.name}
+								onChange={handleChange}
+								placeholder='Your Name'
+								required
+							/>
 						</div>
 						<div className={styles.inputGroup}>
-							<input type='email' placeholder='Your Email' required />
+							<input
+								type='email'
+								name='email'
+								value={formData.email}
+								onChange={handleChange}
+								placeholder='Your Email'
+								required
+							/>
 						</div>
 						<div className={styles.inputGroup}>
-							<input type='text' placeholder='Subject' required />
+							<input
+								type='text'
+								name='subject'
+								value={formData.subject}
+								onChange={handleChange}
+								placeholder='Subject'
+								required
+							/>
 						</div>
 						<div className={styles.inputGroup}>
-							<textarea placeholder='Your Message' rows={5} required></textarea>
+							<textarea
+								name='message'
+								value={formData.message}
+								onChange={handleChange}
+								placeholder='Your Message'
+								rows={5}
+								required
+							></textarea>
 						</div>
-						<button type='submit' className={styles.submitButton}>
-							Send Message
+						<button
+							type='submit'
+							className={styles.submitButton}
+							disabled={isSubmitting}
+						>
+							{isSubmitting ? 'Sending...' : 'Send Message'}
 							<div className={styles.buttonSparkle}></div>
 						</button>
 					</form>
