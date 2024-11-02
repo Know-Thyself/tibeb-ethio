@@ -54,6 +54,7 @@ export default function DesktopMenu({ mounted }: { mounted: boolean }) {
 				onClick={() => router.push('/register')}
 			>
 				Get Registered
+				<div className={styles.buttonSparkle}></div>
 			</button>
 		</div>
 	)

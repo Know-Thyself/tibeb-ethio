@@ -83,6 +83,7 @@ export default function MobileMenu({
 					}}
 				>
 					Get Registered
+					<div className={styles.buttonSparkle}></div>
 				</button>
 			</div>
 		</>

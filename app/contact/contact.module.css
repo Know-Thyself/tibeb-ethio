@@ -48,18 +48,41 @@
 }
 
 .submitButton {
-    background: var(--accent-700);
-    color: var(--background-primary);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+	background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+	color: var(--background-primary);
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 8px;
+	font-size: 1.1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
 }
 
 .submitButton:hover {
-    background: var(--accent-800);
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button sparkle effect */
+.buttonSparkle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
+	transform: translateX(-100%);
+}
+
+.submitButton:hover .buttonSparkle {
+	animation: sparkle 1s ease-in-out infinite;
 }
 
 .infoSection {
@@ -119,6 +142,15 @@
     color: var(--accent-800);
 }
 
+@keyframes sparkle {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
 /* Tablet and up */
 @media (min-width: 768px) {
     .container {
@@ -151,6 +183,7 @@
     }
 
     .submitButton {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: 500;
     }
 }

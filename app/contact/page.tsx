@@ -11,19 +11,20 @@ export default function Contact() {
 					<h1 className={styles.title}>Get in Touch</h1>
 					<form className={styles.form}>
 						<div className={styles.inputGroup}>
-							<input type="text" placeholder="Your Name" required />
+							<input type='text' placeholder='Your Name' required />
 						</div>
 						<div className={styles.inputGroup}>
-							<input type="email" placeholder="Your Email" required />
+							<input type='email' placeholder='Your Email' required />
 						</div>
 						<div className={styles.inputGroup}>
-							<input type="text" placeholder="Subject" required />
+							<input type='text' placeholder='Subject' required />
 						</div>
 						<div className={styles.inputGroup}>
-							<textarea placeholder="Your Message" rows={5} required></textarea>
+							<textarea placeholder='Your Message' rows={5} required></textarea>
 						</div>
-						<button type="submit" className={styles.submitButton}>
+						<button type='submit' className={styles.submitButton}>
 							Send Message
+							<div className={styles.buttonSparkle}></div>
 						</button>
 					</form>
 				</div>
@@ -59,9 +60,15 @@ export default function Contact() {
 						<div className={styles.socialLinks}>
 							<h3>Follow Us</h3>
 							<div className={styles.socialIcons}>
-								<a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
-								<a href="#" aria-label="Twitter"><FaTwitter /></a>
-								<a href="#" aria-label="Instagram"><FaInstagram /></a>
+								<a href='#' aria-label='LinkedIn'>
+									<FaLinkedin />
+								</a>
+								<a href='#' aria-label='Twitter'>
+									<FaTwitter />
+								</a>
+								<a href='#' aria-label='Instagram'>
+									<FaInstagram />
+								</a>
 							</div>
 						</div>
 					</div>

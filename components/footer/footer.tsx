@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import styles from './footer.module.css'
 import {
 	FaTwitter,
@@ -65,16 +66,16 @@ export default function Footer() {
 					<h3 className={styles.footerTitle}>Quick Links</h3>
 					<ul className={styles.footerLinks}>
 						<li className={styles.footerLink}>
-							<a href='#'>About Us</a>
+							<Link href='/about'>About Us</Link>
 						</li>
 						<li className={styles.footerLink}>
-							<a href='#'>Our Mission</a>
+							<Link href='/services'>Our Services</Link>
 						</li>
 						<li className={styles.footerLink}>
-							<a href='#'>Projects</a>
+							<Link href='/projects'>Projects</Link>
 						</li>
 						<li className={styles.footerLink}>
-							<a href='#'>Get Involved</a>
+							<Link href='/register'>Get Involved</Link>
 						</li>
 					</ul>
 				</div>

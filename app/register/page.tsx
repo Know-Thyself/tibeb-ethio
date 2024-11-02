@@ -235,7 +235,6 @@ export default function Register() {
 							onChange={handleSelectChange}
 							required
 							className={mounted ? inter.className : ''}
-							disabled
 						>
 							<option value='' disabled>
 								Select Investment Type
