@@ -16,19 +16,13 @@ export async function POST(request: Request) {
 
 		// Email content
 		const mailOptions = {
-			from: process.env.EMAIL_USER,
-			to: process.env.RECIPIENT_EMAIL, // Where you want to receive emails
+			from: process.env.EMAIL_USER,  // Your verified email
+			to: process.env.RECIPIENT_EMAIL,
+			replyTo: email,  // User's email address
 			subject: `Contact Form: ${subject}`,
-			text: `
-                Name: ${name}
-                Email: ${email}
-                Subject: ${subject}
-                Message: ${message}
-            `,
 			html: `
                 <h3>New Contact Form Submission</h3>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>From:</strong> ${name} (${email})</p>
                 <p><strong>Subject:</strong> ${subject}</p>
                 <p><strong>Message:</strong> ${message}</p>
             `,
