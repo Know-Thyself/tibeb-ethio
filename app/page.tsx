@@ -64,8 +64,11 @@ export default function Home() {
 			index % 2 === 0 ? (
 				<span key={`text-${index}`}>{part}</span>
 			) : (
-				<strong key={`italic-${index}`}>
-					<em>{part}</em>
+				<strong
+					className={mounted ? spaceGrotesk.className : ''}
+					key={`strong-${index}`}
+				>
+					{part}
 				</strong>
 			)
 		)
@@ -75,9 +78,7 @@ export default function Home() {
 		<main className={styles.main}>
 			<div className={styles.hero}>
 				<div className={styles.heroPattern} />
-				<h1
-					className={`${styles.title} ${mounted ? inter.className : ''}`}
-				>
+				<h1 className={`${styles.title} ${mounted ? inter.className : ''}`}>
 					<Bold>
 						{title.split('TIBEB').map((part, i) => (
 							<React.Fragment key={i}>
