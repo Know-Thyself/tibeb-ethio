@@ -84,7 +84,7 @@ export default function Contact() {
 				>
 					Get in Touch
 				</h1>
-				<p className={styles.subtitle}>Let's start a conversation</p>
+				<p className={styles.subtitle}>Let&apos;s start a conversation</p>
 			</div>
 			<div className={styles.contactWrapper}>
 				{/* Left side - Contact Form */}
