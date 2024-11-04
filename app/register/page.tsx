@@ -92,7 +92,7 @@ export default function Register() {
 				<FiCheckCircle />
 				<span>Registration successful!</span>
 			</div>
-			<div className={styles.container}>
+			<div className={styles.titleWrapper}>
 				<h1
 					className={`${styles.title} ${mounted ? spaceGrotesk.className : ''}`}
 				>
@@ -101,7 +101,8 @@ export default function Register() {
 				<p className={`${styles.subtitle} ${mounted ? inter.className : ''}`}>
 					Join our community of entrepreneurs and investors
 				</p>
-
+			</div>
+			<div className={styles.container}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.inputGroup}>
 						<div className={styles.inputIcon}>

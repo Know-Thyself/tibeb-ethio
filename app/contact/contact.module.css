@@ -12,7 +12,7 @@
 }
 
 .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--primary-600);
     font-weight: 600;
     opacity: 0;
@@ -68,7 +68,7 @@
 }
 
 .submitButton {
-	background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+	background: linear-gradient(135deg, var(--primary-700), var(--secondary-500));
 	color: var(--background-primary);
 	padding: 1rem 2rem;
 	border: none;
@@ -246,8 +246,8 @@
 		padding: 2rem;
 	}
 
-	.subtitle {
-		font-size: 1.1rem;
+	.title {
+		font-size: 1.75rem;
 	}
 
 	.infoCard {
@@ -285,6 +285,6 @@
 	}
     
 	.subtitle {
-		font-size: 1.2rem;
+		font-size: 1.25rem;
 	}
 }

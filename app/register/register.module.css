@@ -3,15 +3,24 @@
 	padding-top: 5rem;
 	background: var(--background-primary);
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: 90%;
+	margin: auto;
+}
+
+.titleWrapper {
+    width: 90%;
+    margin: auto;
+	margin-bottom: 1.5rem;
 }
 
 .container {
 	width: 100%;
 	max-width: 800px;
-	margin: 2rem;
-	padding: 2.5rem;
+	margin-bottom: 2rem;
+	padding: 2rem;
 	background: rgba(255, 255, 255, 0.02);
 	border-radius: 20px;
 	backdrop-filter: blur(10px);
@@ -22,16 +31,16 @@
 }
 
 .title {
-	font-size: 1.75rem;
+	font-size: 1.5rem;
 	color: var(--primary-600);
-	margin-bottom: 0.5rem;
+	/* margin-bottom: 0.5rem; */
 	text-align: center;
 }
 
 .subtitle {
 	text-align: center;
 	color: var(--text-secondary);
-	margin-bottom: 2.5rem;
+	/* margin-bottom: 2.5rem; */
 	font-size: 1.1rem;
 }
 
@@ -156,7 +165,7 @@
 	justify-self: center;
 	width: fit-content;
 	padding: 1rem 2rem;
-	background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+	background: linear-gradient(135deg, var(--primary-700), var(--secondary-500));
 	border: none;
 	border-radius: 12px;
 	color: var(--background-primary);
@@ -284,16 +293,31 @@
 	}
 
 	.title {
-		font-size: 3rem;
+		font-size: 1.75rem;
 	}
-
-	.subtitle {
-		font-size: 1.2rem;
-	}
-
 	.submitButton {
 		margin-top: 2rem;
 		font-size: 1.25rem;
 		width: 50%;
+	}
+}
+
+@media (min-width: 869px) {
+	.main {
+		padding-top: 7rem;
+	}
+
+	.title {
+		font-size: 2.25rem;
+	}
+
+	.subtitle {
+		font-size: 1.25rem;
+	}
+}
+
+@media (min-width: 948px) {
+	.main {
+		padding-top: 5.5rem;
 	}
 }
